@@ -1,4 +1,4 @@
-# Hardened deployment of Nginx for WordPress
+# Anti-hacking tools deployment of Nginx for WordPress
 
 This repo only add small rules in the nginx configuration for Wordpress, **without change any internal functionality** of Wordpress.
 
