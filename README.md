@@ -2,7 +2,7 @@
 
 This repo only add small rules in the nginx configuration for Wordpress, **without change any internal functionality** of Wordpress.
 
-**The main goal is to disable hacking tools lik: WP-Scan or Plecost** 
+**The main goal is to disable hacking tools lik: WP-Scan or Plecost**
 
 # Security rules
 
@@ -11,8 +11,8 @@ This repo only add small rules in the nginx configuration for Wordpress, **witho
 - Denied access to files starting at symbol: "~", usually backup files
 - Denied public access to upload.php / file.php
 - Denied public access to any .php file from a theme
-- Denied public access to wp.config.php file  
-- Denied public access error_log file  
+- Denied public access to wp.config.php file
+- Denied public access error_log file
 - Limited internal-only access to *wp-content/* and *wp-includes/*
 
 # Paranoid-rules
@@ -21,8 +21,8 @@ I recognize, I'm a bit paranoid. So, this repo also implement:
 
 - Nginx will tell to the scanners that it's a "Microsoft-IIS/8.5" instead of nginx
 - Nginx will change the typical HTTP header response, *X-Powered-By: PHP/7.5" to *X-Powered-By: ASP.NET 4.8"
-  
-  
+
+
 # Examples
 
 This docker image must be complemented with the *wordpress-docker-sec* image, that you can find at: https://github.com/cr0hn/wordpress-docker-sec
@@ -39,7 +39,11 @@ services:
     depends_on:
       - mysql
     environment:
-      WORDPRESS_DB_PASSWORD: my-secret-pw
+      - WORDPRESS_DB_USER=my-user
+      - WORDPRESS_DB_HOST=mysql
+      - WORDPRESS_DB_PASSWORD=my-secret-pw
+      - WORDPRESS_DB_NAME=wordpress
+      - WORDPRESS_TABLE_PREFIX=mycustomprefix_
     volumes:
       - wordpress:/var/www/html
 
