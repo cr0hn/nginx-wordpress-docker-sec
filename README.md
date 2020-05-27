@@ -4,6 +4,10 @@ This repo only add small rules in the nginx configuration for Wordpress, **witho
 
 **The main goal is to disable hacking tools lik: WP-Scan or Plecost**
 
+# Support this project
+
+Support this project (to solve issues, new features...) by applying the Github "Sponsor" button.
+
 # Security rules
 
 - Denied access to the Readme, license or changelog files from plugins, to avoid extract plugins versions
